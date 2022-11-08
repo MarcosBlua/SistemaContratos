@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SistemaContratos.Models;
 
 namespace SistemaContratos.Controllers
 {
@@ -6,7 +7,21 @@ namespace SistemaContratos.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            List<AreaViewModel> listadoAreas = new List<AreaViewModel>();
+
+            return View(listadoAreas);
+        }
+
+        public IActionResult AltaArea()
+        {
+            var areaVm = new AreaViewModel();
+            return View(areaVm);
+        }
+
+        public IActionResult GuardarArea(AreaViewModel areaVm)
+        {
+            return Redirect(nameof(Index));
+            //return View("Index");
         }
     }
 }
