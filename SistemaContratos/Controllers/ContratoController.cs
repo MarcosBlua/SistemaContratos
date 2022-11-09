@@ -1,12 +1,161 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using SistemaContratos.Data;
+using SistemaContratos.Models;
 
 namespace SistemaContratos.Controllers
 {
     public class ContratoController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public ContratoController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Contrato
+        public async Task<IActionResult> Index()
+        {
+              return View(await _context.contrato.ToListAsync());
+        }
+
+        // GET: Contrato/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.contrato == null)
+            {
+                return NotFound();
+            }
+
+            var contrato = await _context.contrato
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (contrato == null)
+            {
+                return NotFound();
+            }
+
+            return View(contrato);
+        }
+
+        // GET: Contrato/Create
+        public IActionResult Create()
         {
             return View();
+        }
+
+        // POST: Contrato/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("id,fecha_inicio,fecha_fin,fecha_contrato,fecha_dictamen,tareas,remuneracion,financiamiento_especial,estado,fecha_inactividad,motivo_baja,paso,persona_id,estado_contrato_id,area_id,retribucion,sujeto_a,traslado,nro_expediente,pagaderos,nro_resolucion,ejercicio,grupo_presupuestario,unidad_presupuestaria,subunidad_presupuestaria,fuente")] Contrato contrato)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(contrato);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(contrato);
+        }
+
+        // GET: Contrato/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null || _context.contrato == null)
+            {
+                return NotFound();
+            }
+
+            var contrato = await _context.contrato.FindAsync(id);
+            if (contrato == null)
+            {
+                return NotFound();
+            }
+            return View(contrato);
+        }
+
+        // POST: Contrato/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("id,fecha_inicio,fecha_fin,fecha_contrato,fecha_dictamen,tareas,remuneracion,financiamiento_especial,estado,fecha_inactividad,motivo_baja,paso,persona_id,estado_contrato_id,area_id,retribucion,sujeto_a,traslado,nro_expediente,pagaderos,nro_resolucion,ejercicio,grupo_presupuestario,unidad_presupuestaria,subunidad_presupuestaria,fuente")] Contrato contrato)
+        {
+            if (id != contrato.id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(contrato);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ContratoExists(contrato.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(contrato);
+        }
+
+        // GET: Contrato/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.contrato == null)
+            {
+                return NotFound();
+            }
+
+            var contrato = await _context.contrato
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (contrato == null)
+            {
+                return NotFound();
+            }
+
+            return View(contrato);
+        }
+
+        // POST: Contrato/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_context.contrato == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.contrato'  is null.");
+            }
+            var contrato = await _context.contrato.FindAsync(id);
+            if (contrato != null)
+            {
+                _context.contrato.Remove(contrato);
+            }
+            
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool ContratoExists(int id)
+        {
+          return _context.contrato.Any(e => e.id == id);
         }
     }
 }

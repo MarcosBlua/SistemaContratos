@@ -2,7 +2,7 @@
 
 namespace SistemaContratos.Models
 {
-    public class AreaViewModel
+    public class Area
     {
         public int id { get; set; }
         public string nombre { get; set; }

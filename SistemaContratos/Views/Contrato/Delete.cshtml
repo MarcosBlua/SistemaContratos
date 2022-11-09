@@ -1,0 +1,172 @@
+﻿@model SistemaContratos.Models.Contrato
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_inicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_inicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_fin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_fin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_contrato)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_contrato)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_dictamen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_dictamen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tareas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tareas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.remuneracion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.remuneracion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.financiamiento_especial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.financiamiento_especial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha_inactividad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fecha_inactividad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.motivo_baja)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.motivo_baja)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.paso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.paso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.persona_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.persona_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.estado_contrato_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado_contrato_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.area_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.area_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.retribucion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.retribucion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sujeto_a)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sujeto_a)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.traslado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.traslado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nro_expediente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nro_expediente)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pagaderos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pagaderos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nro_resolucion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nro_resolucion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ejercicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ejercicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.grupo_presupuestario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.grupo_presupuestario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.unidad_presupuestaria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.unidad_presupuestaria)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.subunidad_presupuestaria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.subunidad_presupuestaria)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fuente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fuente)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

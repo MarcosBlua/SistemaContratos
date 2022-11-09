@@ -1,6 +1,180 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<SistemaContratos.Models.Contrato>
+
 @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Contratos</h1>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_contrato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_dictamen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tareas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.remuneracion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.financiamiento_especial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_inactividad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.motivo_baja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.persona_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado_contrato_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.area_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.retribucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sujeto_a)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.traslado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nro_expediente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pagaderos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nro_resolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ejercicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grupo_presupuestario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.unidad_presupuestaria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subunidad_presupuestaria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fuente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_inicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_contrato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_dictamen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tareas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remuneracion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.financiamiento_especial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_inactividad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.motivo_baja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.persona_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado_contrato_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.area_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.retribucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sujeto_a)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.traslado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nro_expediente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pagaderos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nro_resolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ejercicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.grupo_presupuestario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unidad_presupuestaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subunidad_presupuestaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fuente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
